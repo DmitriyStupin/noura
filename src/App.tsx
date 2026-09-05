@@ -4,6 +4,7 @@ import EntryPage from "@/pages/EntryPage/EntryPage.tsx";
 import {useEffect, useState} from "react";
 import type {RecordType} from "@/types/record.ts";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import NameDialog from "@/components/NameDialog/NameDialog.tsx";
 
 export function App() {
   const [records, setRecords] = useState<RecordType[]>(() => {
@@ -21,6 +22,10 @@ export function App() {
     }
   })
 
+  const [name, setName] = useState(() => {
+    return localStorage.getItem('name') ?? ''
+  })
+
   useEffect(() => {
     localStorage.setItem('records', JSON.stringify(records))
   }, [records]);
@@ -28,10 +33,11 @@ export function App() {
   return (
     <BrowserRouter>
       <Header />
+      <NameDialog name={name} setName={setName} />
       <Routes>
         <Route
           path={'/'}
-          element={<HomePage records={records} />}
+          element={<HomePage records={records} name={name} />}
         />
         <Route
           path={'/weight'}
@@ -53,6 +59,14 @@ export function App() {
           path={'/carbs'}
           element={<EntryPage
             category={'carbs'}
+            records={records}
+            setRecords={setRecords}
+          />}
+        />
+        <Route
+          path={'/trainer'}
+          element={<EntryPage
+            category={'trainer'}
             records={records}
             setRecords={setRecords}
           />}

@@ -1,4 +1,4 @@
-export type RecordCategories = 'weight' | 'protein' | 'carbs'
+export type RecordCategories = 'weight' | 'protein' | 'carbs' | 'trainer'
 
 export type RecordType = {
   id: number

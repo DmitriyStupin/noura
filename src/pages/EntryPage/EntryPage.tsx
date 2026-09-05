@@ -37,6 +37,7 @@ const EntryPage = (props: EntryPageProps) => {
     'weight': 'Вес',
     'protein': 'Белки',
     'carbs': 'Углеводы',
+    'trainer': 'Тренажеры',
   }
 
   return (

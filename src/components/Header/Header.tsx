@@ -33,8 +33,8 @@ const Header = () => {
           }}
         >
           {theme === 'light' ? (
-            <Moon className='size-8' />
-          ) :
+              <Moon className='size-8' />
+            ) :
             <Sun className='size-8' />
           }
         </Button>
@@ -49,6 +49,7 @@ const Header = () => {
         <ul className="flex flex-col gap-1">
           <li>
             <SheetClose
+              nativeButton={false}
               render={<Link
                 to={'/'}
                 className="block w-full rounded-md p-3 text-lg font-medium text-foreground transition-colors hover:bg-accent"
@@ -57,6 +58,7 @@ const Header = () => {
           </li>
           <li>
             <SheetClose
+              nativeButton={false}
               render={<Link
                 to={'/weight'}
                 className="block w-full rounded-md p-3 text-lg font-medium text-foreground transition-colors hover:bg-accent"
@@ -65,6 +67,7 @@ const Header = () => {
           </li>
           <li>
             <SheetClose
+              nativeButton={false}
               render={<Link
                 to={'/protein'}
                 className="block w-full rounded-md p-3 text-lg font-medium text-foreground transition-colors hover:bg-accent"
@@ -73,10 +76,20 @@ const Header = () => {
           </li>
           <li>
             <SheetClose
+              nativeButton={false}
               render={<Link
                 to={'/carbs'}
                 className="block w-full rounded-md p-3 text-lg font-medium text-foreground transition-colors hover:bg-accent"
               >Углеводы</Link>}
+            />
+          </li>
+          <li>
+            <SheetClose
+              nativeButton={false}
+              render={<Link
+                to={'/trainer'}
+                className="block w-full rounded-md p-3 text-lg font-medium text-foreground transition-colors hover:bg-accent"
+              >Тренажеры</Link>}
             />
           </li>
         </ul>
