@@ -25,7 +25,7 @@ export function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path={'/'} element={<HomePage />} />
+        <Route path={'/'} element={<HomePage records={records} />} />
         <Route path={'/weight'} element={<EntryPage category={'weight'} records={records} setRecords={setRecords} />} />
         <Route path={'/protein'} element={<EntryPage category={'protein'} records={records} setRecords={setRecords} />} />
         <Route path={'/carbs'} element={<EntryPage category={'carbs'} records={records} setRecords={setRecords} />} />

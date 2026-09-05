@@ -20,16 +20,16 @@ const RecordForm = (props: RecordFormProps) => {
   const {inputText, selectedDate, setInputText, setSelectedDate, addNewRecord} = props
 
   return (
-    <>
-      <Input placeholder={'Введите текст'} value={inputText} onChange={(event) => setInputText(event.target.value)} />
+    <div className={'flex flex-col gap-3 md:flex-row'}>
+      <Input className={'h-12 text-base '} placeholder={'Введите текст'} value={inputText} onChange={(event) => setInputText(event.target.value)} />
       <Popover>
-        <PopoverTrigger render={<Button variant={'outline'}>{selectedDate ? format(selectedDate, 'PPP') : <span>Выберите дату</span>}</Button>} />
+        <PopoverTrigger render={<Button className={'h-12 text-base'} variant={'outline'}>{selectedDate ? format(selectedDate, 'dd.MM.yyyy') : <span>Выберите дату</span>}</Button>} />
         <PopoverContent>
           <Calendar mode={"single"} selected={selectedDate} onSelect={setSelectedDate} />
         </PopoverContent>
       </Popover>
-      <Button onClick={addNewRecord}>Добавить новую запись</Button>
-    </>
+      <Button className={'h-12 text-base'} onClick={addNewRecord}>Добавить новую запись</Button>
+    </div>
   );
 };
 

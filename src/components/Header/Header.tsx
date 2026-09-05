@@ -1,5 +1,5 @@
 import {Button} from "@/components/ui/button";
-import {Menu, Sun} from 'lucide-react'
+import {Menu, Moon, Sun} from 'lucide-react'
 import {
   Sheet,
   SheetClose,
@@ -8,8 +8,11 @@ import {
   SheetTrigger
 } from "@/components/ui/sheet.tsx";
 import {Link} from "react-router-dom";
+import {useTheme} from "@/components/theme-provider.tsx";
 
 const Header = () => {
+  const {theme, setTheme} = useTheme()
+
   return (
     <Sheet>
       <div className='flex items-center justify-between p-3'>
@@ -25,8 +28,15 @@ const Header = () => {
           variant={'ghost'}
           size={"icon-lg"}
           className='size-11'
+          onClick={() => {
+            theme === 'light' ? setTheme('dark') : setTheme('light')
+          }}
         >
-          <Sun className='size-8' />
+          {theme === 'light' ? (
+            <Moon className='size-8' />
+          ) :
+            <Sun className='size-8' />
+          }
         </Button>
       </div>
       <SheetContent

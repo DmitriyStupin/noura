@@ -18,23 +18,30 @@ const EntryPage = (props: EntryPageProps) => {
   const filteredRecords = records.filter((record) => record.category === category)
 
   const addNewRecord = () => {
-    if (inputText.length === 0 || selectedDate === undefined) {
+    if (inputText.trim().length === 0 || selectedDate === undefined) {
       return
     }
 
     const newRecord = {
       date: selectedDate,
-      text: inputText,
+      text: inputText.trim(),
       category: category
     }
 
-    setRecords(prev => [...prev, {id: prev.length + 1, ...newRecord}])
+    setRecords(prev => [...prev, {id: Date.now(), ...newRecord}])
     setInputText('')
     setSelectedDate(undefined)
   }
 
+  const categoryWords = {
+    'weight': 'Вес',
+    'protein': 'Белки',
+    'carbs': 'Углеводы',
+  }
+
   return (
-    <>
+    <div className={'flex flex-col gap-5 max-w-7xl mx-auto px-3'}>
+      <h1 className={"text-3xl md:text-4xl font-medium"}>{categoryWords[category]}</h1>
       <RecordForm
         addNewRecord={addNewRecord}
         selectedDate={selectedDate}
@@ -42,8 +49,11 @@ const EntryPage = (props: EntryPageProps) => {
         inputText={inputText}
         setInputText={setInputText}
       />
-      <RecordsTable records={filteredRecords} />
-    </>
+      <h2 className={"text-xl font-medium"}>Записи</h2>
+      <div className="bg-card border border-border rounded-lg overflow-hidden">
+        <RecordsTable records={filteredRecords} />
+      </div>
+    </div>
   );
 };
 
