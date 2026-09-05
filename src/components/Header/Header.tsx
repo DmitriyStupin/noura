@@ -29,22 +29,45 @@ const Header = () => {
           <Sun className='size-8' />
         </Button>
       </div>
-      <SheetContent side={"left"}>
+      <SheetContent
+        side={"left"}
+        showCloseButton={false}
+      >
         <SheetHeader>
           <h2 className='text-2xl font-medium'>NOURA</h2>
         </SheetHeader>
-        <ul className="">
+        <ul className="flex flex-col gap-1">
           <li>
-            <SheetClose render={<Link to={'/'}>Главная</Link>} />
+            <SheetClose
+              render={<Link
+                to={'/'}
+                className="block w-full rounded-md p-3 text-lg font-medium text-foreground transition-colors hover:bg-accent"
+              >Главная</Link>}
+            />
           </li>
           <li>
-            <SheetClose render={<Link to={'/weight'}>Вес</Link>} />
+            <SheetClose
+              render={<Link
+                to={'/weight'}
+                className="block w-full rounded-md p-3 text-lg font-medium text-foreground transition-colors hover:bg-accent"
+              >Вес</Link>}
+            />
           </li>
           <li>
-            <SheetClose render={<Link to={'/protein'}>Белки</Link>} />
+            <SheetClose
+              render={<Link
+                to={'/protein'}
+                className="block w-full rounded-md p-3 text-lg font-medium text-foreground transition-colors hover:bg-accent"
+              >Белки</Link>}
+            />
           </li>
           <li>
-            <SheetClose render={<Link to={'/carbs'}>Углеводы</Link>} />
+            <SheetClose
+              render={<Link
+                to={'/carbs'}
+                className="block w-full rounded-md p-3 text-lg font-medium text-foreground transition-colors hover:bg-accent"
+              >Углеводы</Link>}
+            />
           </li>
         </ul>
       </SheetContent>
