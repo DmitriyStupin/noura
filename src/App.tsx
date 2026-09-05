@@ -3,7 +3,7 @@ import HomePage from "@/pages/HomePage/HomePage";
 import EntryPage from "@/pages/EntryPage/EntryPage.tsx";
 import {useEffect, useState} from "react";
 import type {RecordType} from "@/types/record.ts";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import NameDialog from "@/components/NameDialog/NameDialog.tsx";
 
 export function App() {
@@ -31,7 +31,7 @@ export function App() {
   }, [records]);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <NameDialog name={name} setName={setName} />
       <Routes>
@@ -72,7 +72,7 @@ export function App() {
           />}
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
