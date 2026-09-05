@@ -1,8 +1,12 @@
-import Header from "@/components/Header/Header.tsx";
+import Header from "@/components/Header/Header";
+import HomePage from "@/pages/HomePage/HomePage";
 
 export function App() {
   return (
-    <Header></Header>
+    <>
+      <Header />
+      <HomePage />
+    </>
   )
 }
 
