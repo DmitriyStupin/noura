@@ -6,12 +6,7 @@ import {
   TableRow
 } from "@/components/ui/table";
 import {format} from "date-fns";
-
-type RecordType = {
-  id: number
-  date: Date
-  text: string
-}
+import type {RecordType} from "@/types/record.ts";
 
 type RecordsTableType = {
   records: RecordType[]
